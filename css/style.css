@@ -1,0 +1,51 @@
+:root {
+  --title-invalid-display: none;
+  --url-invalid-display: none;
+}
+/* start bookmarker */
+.bookmark h1 {
+  font-size: 3rem;
+  background-image: url(../images/sky.jpg);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+.bookmark form,
+.bookmark table {
+  background: #ddd;
+}
+#invalid_message {
+  display: none;
+}
+.form-group {
+  position: relative;
+}
+.form-group::before {
+  content: "";
+  position: absolute;
+  width: auto;
+  top: 110%;
+  transform: translateY(-25%);
+  left: 0;
+  color: red;
+}
+.form-group:first-of-type::before {
+  content: "you have to insert a valid title has at least 3 characters";
+  display: var(--title-invalid-display);
+}
+.form-group:nth-of-type(2)::before {
+  content: "you have to insert a valid url ex: http://www.google.com";
+  display: var(--url-invalid-display);
+}
+@media screen and (max-width: 500px) {
+  .bookmark h1 {
+    font-size: 2rem;
+  }
+  .bookmark form {
+    padding-inline: 10px !important;
+  }
+  .bookmark h3 {
+    font-size: 1.5rem;
+  }
+}
+/* end bookmarker */
